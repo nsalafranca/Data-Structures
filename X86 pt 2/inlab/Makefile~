@@ -1,0 +1,9 @@
+# Nico Salafranca nms6dz Makefile
+CC = clang
+
+CFLAGS  = -g -Wall
+
+TARGET = linkedlist
+
+a: $(TARGET).c
+	$(CC) $(CFLAGS) $(TARGET) $(TARGET).c

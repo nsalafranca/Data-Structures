@@ -1,0 +1,16 @@
+	global threexplusone
+	section .text
+
+begin:
+	push 	rax
+	xor 	rdi, rdi
+	mov	rdi, rbx
+	mov	rbp, 1
+	mov	r12, 3
+
+threexplusone:
+	imul	rdi, r12
+	add	rdi, rbp
+	
+	
+
