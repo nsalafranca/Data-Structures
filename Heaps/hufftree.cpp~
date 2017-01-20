@@ -1,0 +1,62 @@
+//Nico Salafranca nms6dz hufftree.cpp
+#include <iostream>
+#include "huffnode.h"
+#include "hufftree.h"
+
+using namespace std;
+
+Tree::Tree(){
+  root = NULL;
+}
+
+Tree::~Tree(){
+  delete root;
+}
+
+Heap Tree::makeTree(Heap z){
+  while(z.getSize() >= 2){
+    huffNode* x = z.findMin();
+    z.deleteMin();
+    huffNode* y = z.findMin();
+    z.deleteMin();
+    huffNode* a = combine(x, y);
+    z.insert(a);
+  }
+  return z;
+}
+
+huffNode* Tree::combine(huffNode* node1, huffNode* node2) {
+  int total = 0;
+  total +=  node1->getFreq() + node2->getFreq();
+  huffNode* retVal = new huffNode(total, '1');
+  retVal->left = node1;
+  retVal->right = node2;
+  return retVal;
+}
+
+void Tree::setPrefix(huffNode *root, string bit){
+  if (root->left == NULL && root->right == NULL){
+    root->prefix = bit;
+  }
+  if (root->right) {
+    setPrefix(root->right, bit+"1");
+  }
+  if (root->left){
+    setPrefix(root->left, bit+"0");
+  }
+}
+   
+void Tree::printPrefix(huffNode *root, string bit){
+  if (root->c == ' '){
+    cout << "space" << " " << bit << endl;
+  }
+  if (root->left == NULL && root->right == NULL && root->c != ' '){
+    cout << root->c << " "<< bit <<endl;
+  }
+  if (root->left){
+    printPrefix(root->left, bit + "0");
+  }
+  if (root->right) {
+    printPrefix(root->right, bit + "1");
+  }
+}

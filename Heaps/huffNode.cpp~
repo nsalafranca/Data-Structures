@@ -1,0 +1,31 @@
+#include "huffNode.h"
+using namespace std;
+
+huffNode::huffNode(int freq, char c){
+  left = NULL;
+  right = NULL;
+  freq = freq;
+  char ch = c;
+  string pre = "";
+}
+
+huffNode::~huffNode(){
+  delete left;
+  delete right;
+}
+
+int huffNode::getFreq() const{
+  return freq;
+}
+
+char huffNode::getChar(){
+  return c;
+}
+
+string huffNode::getPrefix(){
+  return prefix;
+}
+
+bool huffNode::operator<(const huffNode& n) const{
+  return(this->getFreq()<n.getFreq());
+}

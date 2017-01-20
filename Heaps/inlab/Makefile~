@@ -1,0 +1,24 @@
+#Nico Salafranca nms6dz Makefile
+CXX = clang++
+
+CXXFLAGS = -Wall -g
+
+OFILES	= huffmandec.o huffNode.o  
+OOFILES = heap.o huffNode.o hufftree.o huffmanenc.o
+
+.SUFFIXES: .o .cpp
+
+all:	$(OFILES)$(OOFILES)
+	$(CXX) $(CXXFLAGS) $(OOFILES) -o encoder
+	$(CXX) $(CXXFLAGS) $(OFILES) -o decoder
+	$(CXX) $(CXXFLAGS) $(OOFILES) -o encoder
+
+huffNode.o: huffNode.cpp huffNode.h
+huffmandec.o: huffmandec.cpp huffNode.h 
+heap.o: heap.cpp heap.h huffNode.h
+huffNode.o: huffNode.cpp huffNode.h
+hufftree.o: hufftree.cpp huffNode.h hufftree.h heap.h
+huffmanenc.o: huffmanenc.cpp heap.h huffNode.h hufftree.h
+
+clean:
+	-rm -f *.o *~ a.out
