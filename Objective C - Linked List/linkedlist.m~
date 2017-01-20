@@ -1,0 +1,79 @@
+//  Nico Salafranca nms6dz
+//  linkedlist.m
+
+#import <Foundation/Foundation.h>
+#import <Foundation/NSObject.h>
+#import <stdio.h>
+#import <stdlib.h>
+
+@interface ListNode : NSObject {
+@public
+    ListNode *next;
+    int val;
+}
+- (id) next: (ListNode*) next_value;
+- (ListNode*) next;
+- (id) x: (int) val_value;
+- (int) x;
+@end
+
+@implementation ListNode
+-(id) next: (int) next_value{
+    next = next_value;
+    return self;
+}
+-(ListNode*) next {
+    return next;
+}
+-(id) val: (int) val_value{
+    val = val_value;
+    return self;
+}
+-(int) val{
+    return val;
+}
+@end
+
+  int main (void){
+      //Dynamic allocation of listnode
+      ListNode* head = [ListNode new];
+      ListNode* temp = head;
+      
+      int input;
+      printf("Enter how many values to input: ");
+      scanf("%d",&input);
+      
+      //Constructing the list
+      for(int i = 0; i < input; i++){
+          int v;
+          printf("Enter value %d: ", i+1 );
+          scanf("%d", &v);
+          
+          ListNode *linkedNode = [ListNode new];
+          temp->val = v;
+          temp->next = linkedNode;
+          temp = temp->next;
+      }
+      
+      //Print the List
+      ListNode *print = [ListNode new];
+      print = head;
+      
+      for( int i = 0; i < input; ++i){
+          int curr = print->val;
+          printf("%d", curr);
+          print = print->next;
+          printf("\n");
+      }
+      
+      //Deallocate memory
+      ListNode *dNode = [ListNode new];
+      dNode = head;
+      
+      while( dNode != nil ){
+          ListNode *removal = [ListNode new];
+          removal = dNode; 
+          dNode = dNode->next;
+          [removal release];
+      }
+  }
