@@ -1,0 +1,33 @@
+#include "test.h"
+
+//using namespace std;
+
+void passVal(int i, char c, float f, int* p){
+  
+}
+
+void passPoint(int* i, char* c, float* f, int* p){
+
+}
+
+void passRef(int& i, char& c, float& f, int& p){
+
+}
+
+void passArray(int n[]){
+
+}
+
+int main(){
+int i = 1;
+char c = 'a';
+int* p = &i;
+float f = 1.1;
+
+passVal(i, c, f, p); 
+passRef(&i, &c, &f, &p); 
+passPoint(&i, &c, &f, p);
+
+int numbers[] = {1, 2, 3};
+passArray(numbers); 
+}

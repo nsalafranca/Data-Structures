@@ -1,0 +1,11 @@
+int i = 1;
+char c = 'a';
+int* p = &i;
+float f = 1.1;
+
+passByValue(i, c, p, f, tc); 
+passByReference(i, c, p, f, tc); 
+passByPointer(&i, &c, &p, &f, &tc);
+
+int numbers[] = {1, 2, 3};
+passArray(numbers); 

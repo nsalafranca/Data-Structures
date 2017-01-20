@@ -1,0 +1,33 @@
+#include "TestClass.h"
+
+/*TC(int i, float f, char c, int x, int* p){
+  this.i = i;
+  this.f = f;
+  this.c = c;
+  this.x = x;
+  this.p = p;
+  }*/
+
+void passVal(int i, float f, char c, int x, int* p){
+
+}
+
+void passobj(TC z){
+
+}
+/*int getInt(){
+  return x;
+  }*/
+int main(){
+  //TC q = new TC(1,0.0, c, 6, 0x00000000);
+  int i = 0;
+  float f = 1.0;
+  char c = 'c';
+  int* p = &i;
+  int x = 5;
+
+  passVal(i, f, c, x, p);
+  passobj(q);
+  
+
+}

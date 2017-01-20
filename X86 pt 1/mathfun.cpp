@@ -1,0 +1,28 @@
+//main.cpp
+//Nico Salafranca nms6dz
+
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+//extern "C" int mathlib (int, int);
+extern "C" int _product (int, int);
+extern "C" int _power (int, int);
+int main() {
+
+  // delcare the local variables                                               
+  int x,y,pr,po;
+  // how big is the array we want to use?
+  cout << "Please enter number, x:  " << endl;
+  cin >> x;
+  cout << "Please enter number, y:  " << endl;
+  cin >> y;
+  
+  pr = _product(x,y);
+  po = _power(x,y);
+
+  cout << "Product of " << x << "and " << "y is: " << pr << endl;
+  cout << "Power of "<< x << "and " << y << "is: " << po << endl;
+}
