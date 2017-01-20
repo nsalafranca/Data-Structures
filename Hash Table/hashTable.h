@@ -1,0 +1,28 @@
+/* Nico Salafranca nms6dz hashtable.h*/
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <cstdlib>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+class hashTable{
+
+ public:
+  hashTable(int size);
+  ~hashTable();
+  void insert(/*unsigned int k,*/ const string &v);
+  bool contains(string s);
+  unsigned int hashFunc(string ss);
+
+ private:
+  vector< list <string> > ht;
+  unsigned int size;
+  friend class primenumber;
+  friend class getWordInGrid;
+};
+#endif

@@ -1,0 +1,19 @@
+#Nico Salafranca nms6dz
+CXX = clang++
+CXXFLAGS = -Wall -g
+
+OFILES: hashTable.o timer.o wordPuzzle.o
+.SUFFIXES: .o .cpp
+a: $(OFILES)
+	$(CXX) $(OFILES)
+
+hashTable.o: hashTable.h hashTable.cpp
+	$(CXX) -c hashTable.cpp
+
+wordPuzzle.o: hashTable.h hashTable.cpp wordPuzzle.cpp timer.h timer.cpp
+	$(CXX)  -c hashTable.cpp wordPuzzle.cpp
+
+timer.o: timer.h timer.cpp
+	$(CXX)  -c timer.cpp
+
+clean: -rm -f *.o *~ a
